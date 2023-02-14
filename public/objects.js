@@ -31,11 +31,21 @@ class User {
         return this;
     }
 }
+class Admin extends User {
+    deleteUser(user) {
+        users = users.filter(u => {
+            return u.email != user.email;
+        });
+    }
+}
 var userOne = new User('Waz@angelassist.org', 'Waz');
-console.log(userOne);
 var userTwo = new User('Meen@angelassist.org', 'Meen');
-console.log(userTwo);
+var userThree = new User('gxd@angelassist.org', 'gxd');
+var admin = new Admin('manu@angelassist.org', 'manu');
+var users = [userOne, userTwo, userThree, admin];
 userOne.login().updateScore().updateScore().logout();
+// admin.deleteUser(userOne)
+console.log(users);
 // the 'new' keyword
 // - creates a new empty object {}
 // - sets the value of 'this' to be the new empty object
